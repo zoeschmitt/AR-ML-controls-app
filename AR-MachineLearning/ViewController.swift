@@ -25,6 +25,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             // Set the scene to the view
             sceneView.scene = scene
         }
+
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.didTapScreen))
+        tapRecognizer.numberOfTapsRequired = 1
+        tapRecognizer.numberOfTouchesRequired = 1
+        self.view.addGestureRecognizer(tapRecognizer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +48,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Pause the view's session
         sceneView.session.pause()
+    }
+
+    @objc func didTapScreen(recognizer: UITapGestureRecognizer) {
+        if let camera = sceneView.session.currentFrame?.camera {
+            var translation = matrix_identity_float4x4
+            translation.columns.3.z = -5.0
+            let transform = camera.transform * translation
+            let position = SCNVector3(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
+            sceneController.addSphere(parent: sceneView.scene.rootNode, position: position)
+        }
     }
 
     // MARK: - ARSCNViewDelegate

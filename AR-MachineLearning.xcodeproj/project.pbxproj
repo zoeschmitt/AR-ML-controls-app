@@ -18,6 +18,8 @@
 		DDF0258B284563E500C4F49D /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF0258A284563E500C4F49D /* MainScene.swift */; };
 		DDF0258F2846EFC000C4F49D /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF0258D2846EFC000C4F49D /* UtilityExtensions.swift */; };
 		DDF025902846EFC000C4F49D /* Node+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF0258E2846EFC000C4F49D /* Node+Extensions.swift */; };
+		DDF025932846F06800C4F49D /* SceneObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF025922846F06800C4F49D /* SceneObject.swift */; };
+		DDF025952846F08A00C4F49D /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF025942846F08A00C4F49D /* Sphere.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		DDF0258A284563E500C4F49D /* MainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
 		DDF0258D2846EFC000C4F49D /* UtilityExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
 		DDF0258E2846EFC000C4F49D /* Node+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Node+Extensions.swift"; sourceTree = "<group>"; };
+		DDF025922846F06800C4F49D /* SceneObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneObject.swift; sourceTree = "<group>"; };
+		DDF025942846F08A00C4F49D /* Sphere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sphere.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,7 @@
 		DDF0255828454E9D00C4F49D /* AR-MachineLearning */ = {
 			isa = PBXGroup;
 			children = (
+				DDF025912846F05400C4F49D /* SceneObjects */,
 				DDF0258C2846EFB000C4F49D /* Utils */,
 				DDF02589284563DC00C4F49D /* Scenes */,
 				DDF0256C28454EBB00C4F49D /* Models */,
@@ -102,6 +107,15 @@
 				DDF0258D2846EFC000C4F49D /* UtilityExtensions.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		DDF025912846F05400C4F49D /* SceneObjects */ = {
+			isa = PBXGroup;
+			children = (
+				DDF025922846F06800C4F49D /* SceneObject.swift */,
+				DDF025942846F08A00C4F49D /* Sphere.swift */,
+			);
+			path = SceneObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,7 +192,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDF025952846F08A00C4F49D /* Sphere.swift in Sources */,
 				DDF025902846EFC000C4F49D /* Node+Extensions.swift in Sources */,
+				DDF025932846F06800C4F49D /* SceneObject.swift in Sources */,
 				DDF0258B284563E500C4F49D /* MainScene.swift in Sources */,
 				DDF0255E28454E9D00C4F49D /* ViewController.swift in Sources */,
 				DDF0258F2846EFC000C4F49D /* UtilityExtensions.swift in Sources */,

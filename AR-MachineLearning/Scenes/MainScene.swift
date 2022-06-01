@@ -36,4 +36,31 @@ struct MainScene {
         directionalNode.light = directionalLight
         scene.rootNode.addChildNode(directionalNode)
     }
+
+    func easeOutElastic(_ t: Float) -> Float {
+        let p: Float = 0.3
+        let result = pow(2.0, -10.0 * t) * sin((t - p / 4.0) * (2.0 * Float.pi) / p) + 1.0
+        return result
+    }
+    
+    func addSphere(parent: SCNNode, position: SCNVector3) {
+
+        guard let scene = self.scene else { return }
+
+        let sphere = Sphere()
+
+        let prevScale = sphere.scale
+        sphere.scale = SCNVector3(0.01, 0.01, 0.01)
+        let scaleAction = SCNAction.scale(to: CGFloat(prevScale.x), duration: 1.5)
+        scaleAction.timingMode = .linear
+
+        scaleAction.timingFunction = { (p: Float) in
+            return self.easeOutElastic(p)
+        }
+
+        sphere.name = "Sphere"
+        sphere.position = scene.rootNode.convertPosition(position, to: parent)
+        parent.addChildNode(sphere)
+        sphere.runAction(scaleAction, forKey: "scaleAction")
+    }
 }
