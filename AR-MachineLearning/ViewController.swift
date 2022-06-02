@@ -148,13 +148,18 @@ extension ViewController {
             .compactMap({ $0 as? VNClassificationObservation })
             .map({ "\($0.identifier) \(String(format: " : %.2f", $0.confidence))" })
             .joined(separator: "\n")
-        print("Classifications: \(classifications)")
         DispatchQueue.main.async {
             let topPrediction = classifications.components(separatedBy: "\n")[0]
             let topPredictionName = topPrediction.components(separatedBy: ":")[0].trimmingCharacters(in: .whitespaces)
             guard let topPredictionScore: Float = Float(topPrediction.components(separatedBy: ":")[1].trimmingCharacters(in: .whitespaces)) else { return }
-            if topPredictionScore > 0.95 {
-                print("Top prediction: \(topPredictionName) - score: \(String(describing: topPredictionScore))")
+            if topPredictionScore > 0.6 {
+                guard let childNode = self.sceneView.scene.rootNode.childNode(withName: "Sphere", recursively: true), let sphere = childNode as? Sphere else { return }
+                if topPredictionName == "hand_fist" {
+                    sphere.animate()
+                }
+                if topPredictionName == "hand_open" || topPrediction == "Negative" {
+                    sphere.stopAnimating()
+                }
             }
         }
     }

@@ -50,7 +50,7 @@ struct MainScene {
         let sphere = Sphere()
 
         let prevScale = sphere.scale
-        sphere.scale = SCNVector3(0.01, 0.01, 0.01)
+        sphere.scale = SCNVector3(0.1, 0.1, 0.1)
         let scaleAction = SCNAction.scale(to: CGFloat(prevScale.x), duration: 1.5)
         scaleAction.timingMode = .linear
 

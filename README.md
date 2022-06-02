@@ -2,4 +2,4 @@
 
 CoreML & ARKit
 
-Trained a machine learning model using Microsofts [Custom Vision](https://www.customvision.ai/) and imported the trained model into the project using CoreML to use it in the app.
+Using CoreML and ARKit to control a 3D Earth model with hand gestures.

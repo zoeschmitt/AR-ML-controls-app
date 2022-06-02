@@ -7,14 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD8B8AE828484301005D700C /* earth.dae in Resources */ = {isa = PBXBuildFile; fileRef = DD8B8AE728484301005D700C /* earth.dae */; };
 		DDF0255A28454E9D00C4F49D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF0255928454E9D00C4F49D /* AppDelegate.swift */; };
-		DDF0255C28454E9D00C4F49D /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = DDF0255B28454E9D00C4F49D /* art.scnassets */; };
 		DDF0255E28454E9D00C4F49D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF0255D28454E9D00C4F49D /* ViewController.swift */; };
 		DDF0256128454E9D00C4F49D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDF0255F28454E9D00C4F49D /* Main.storyboard */; };
 		DDF0256328454E9E00C4F49D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDF0256228454E9E00C4F49D /* Assets.xcassets */; };
 		DDF0256628454E9E00C4F49D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDF0256428454E9E00C4F49D /* LaunchScreen.storyboard */; };
 		DDF0258528455D1900C4F49D /* 0_Tierra1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DDF0258228455D1800C4F49D /* 0_Tierra1.jpg */; };
-		DDF0258828455D6C00C4F49D /* earth.dae in Resources */ = {isa = PBXBuildFile; fileRef = DDF0258728455D6C00C4F49D /* earth.dae */; };
 		DDF0258B284563E500C4F49D /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF0258A284563E500C4F49D /* MainScene.swift */; };
 		DDF0258F2846EFC000C4F49D /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF0258D2846EFC000C4F49D /* UtilityExtensions.swift */; };
 		DDF025902846EFC000C4F49D /* Node+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF0258E2846EFC000C4F49D /* Node+Extensions.swift */; };
@@ -28,15 +27,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD8B8AE728484301005D700C /* earth.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = earth.dae; sourceTree = "<group>"; };
 		DDF0255628454E9D00C4F49D /* AR-MachineLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR-MachineLearning.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF0255928454E9D00C4F49D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DDF0255B28454E9D00C4F49D /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		DDF0255D28454E9D00C4F49D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DDF0256028454E9D00C4F49D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDF0256228454E9E00C4F49D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDF0256528454E9E00C4F49D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDF0258228455D1800C4F49D /* 0_Tierra1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0_Tierra1.jpg; sourceTree = "<group>"; };
-		DDF0258728455D6C00C4F49D /* earth.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = earth.dae; sourceTree = "<group>"; };
 		DDF0258A284563E500C4F49D /* MainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
 		DDF0258D2846EFC000C4F49D /* UtilityExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
 		DDF0258E2846EFC000C4F49D /* Node+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Node+Extensions.swift"; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 				DDF02589284563DC00C4F49D /* Scenes */,
 				DDF0256C28454EBB00C4F49D /* Models */,
 				DDF0255928454E9D00C4F49D /* AppDelegate.swift */,
-				DDF0255B28454E9D00C4F49D /* art.scnassets */,
 				DDF0255D28454E9D00C4F49D /* ViewController.swift */,
 				DDF0255F28454E9D00C4F49D /* Main.storyboard */,
 				DDF0256228454E9E00C4F49D /* Assets.xcassets */,
@@ -97,7 +94,7 @@
 		DDF0256C28454EBB00C4F49D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DDF0258728455D6C00C4F49D /* earth.dae */,
+				DD8B8AE728484301005D700C /* earth.dae */,
 				DDF0258228455D1800C4F49D /* 0_Tierra1.jpg */,
 			);
 			path = Models;
@@ -199,7 +196,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDF0255C28454E9D00C4F49D /* art.scnassets in Resources */,
 				DDF025A12848230300C4F49D /* labels.txt in Resources */,
 				DDF0258528455D1900C4F49D /* 0_Tierra1.jpg in Resources */,
 				DDF025A22848230300C4F49D /* cvexport.manifest in Resources */,
@@ -207,8 +203,8 @@
 				DDF0259E2848230300C4F49D /* metadata_properties.json in Resources */,
 				DDF0256628454E9E00C4F49D /* LaunchScreen.storyboard in Resources */,
 				DDF0256328454E9E00C4F49D /* Assets.xcassets in Resources */,
+				DD8B8AE828484301005D700C /* earth.dae in Resources */,
 				DDF0256128454E9D00C4F49D /* Main.storyboard in Resources */,
-				DDF0258828455D6C00C4F49D /* earth.dae in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
