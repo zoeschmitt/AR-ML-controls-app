@@ -1,0 +1,13 @@
+{
+  "DomainType": "Classification",
+  "Platform": "CoreML",
+  "Flavor": null,
+  "ExporterVersion": "2.1",
+  "ExportedDate": "2022-05-30T20:40:17.1670248Z",
+  "IterationId": "46b6b8b9-4727-4ae0-81ba-83075bfa9ea6",
+  "ModelFileName": "Gestures.mlmodel",
+  "LabelFileName": "labels.txt",
+  "MetadataPropsFileName": "metadata_properties.json",
+  "ModelFileSHA1": "c7210523d6a2fda6b932a668f9e840dd4bad146b",
+  "SchemaVersion": "1.0"
+}

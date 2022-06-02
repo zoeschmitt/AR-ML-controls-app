@@ -8,11 +8,27 @@
 import UIKit
 import SceneKit
 import ARKit
+import CoreML
+import Vision
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     var sceneController = MainScene()
+    let currentMLModel = { () -> Gestures in
+        do {
+            let config = MLModelConfiguration()
+            return try Gestures(configuration: config)
+        } catch {
+            print(error)
+            fatalError("Couldn't create ML model")
+        }
+    }().model
+    //  create a queue where we’ll asynchronously run our Vision requests
+    private let serialQueue = DispatchQueue(label: "com.aboveground.dispatchqueuml")
+    // set up a repeating loop for CoreML to grab images from the camera to process through Vision
+    private var visionRequests = [VNRequest]()
+    private var timer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +53,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
+        configuration.planeDetection = .horizontal
 
         // Run the view's session
         sceneView.session.run(configuration)
 
+        setupCoreML()
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.loopCoreMLUpdate), userInfo: nil, repeats: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -57,6 +76,21 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             let transform = camera.transform * translation
             let position = SCNVector3(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
             sceneController.addSphere(parent: sceneView.scene.rootNode, position: position)
+        }
+    }
+
+    private func setupCoreML() {
+        guard let selectedModel = try? VNCoreMLModel(for: currentMLModel) else {
+            fatalError("Could not load ML model.")
+        }
+        let classificationRequest = VNCoreMLRequest(model: selectedModel, completionHandler: classificationCompleteHandler)
+        classificationRequest.imageCropAndScaleOption = VNImageCropAndScaleOption.centerCrop
+        visionRequests = [classificationRequest]
+    }
+
+    @objc private func loopCoreMLUpdate() {
+        serialQueue.async {
+            self.updateCoreML()
         }
     }
 
@@ -84,5 +118,44 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     func sessionInterruptionEnded(_ session: ARSession) {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
+    }
+}
+
+extension ViewController {
+    private func updateCoreML() {
+        let pixbuff: CVPixelBuffer? = (sceneView.session.currentFrame?.capturedImage)
+        if pixbuff == nil { return }
+        let deviceOrientation = UIDevice.current.orientation.getImagePropertyOrientation()
+        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixbuff!, orientation: deviceOrientation, options: [:])
+        do {
+            try imageRequestHandler.perform(self.visionRequests)
+        } catch {
+            print(error)
+        }
+    }
+
+    private func classificationCompleteHandler(request: VNRequest, error: Error?) {
+        if error != nil {
+            print("Error: " + (error?.localizedDescription)!)
+            return
+        }
+        guard let observations = request.results else {
+            return
+        }
+        // take the first three items that are observed in the model (we only have three),
+        // format them into a readable string, then base our logic from the top prediction.
+        let classifications = observations[0...2]
+            .compactMap({ $0 as? VNClassificationObservation })
+            .map({ "\($0.identifier) \(String(format: " : %.2f", $0.confidence))" })
+            .joined(separator: "\n")
+        print("Classifications: \(classifications)")
+        DispatchQueue.main.async {
+            let topPrediction = classifications.components(separatedBy: "\n")[0]
+            let topPredictionName = topPrediction.components(separatedBy: ":")[0].trimmingCharacters(in: .whitespaces)
+            guard let topPredictionScore: Float = Float(topPrediction.components(separatedBy: ":")[1].trimmingCharacters(in: .whitespaces)) else { return }
+            if topPredictionScore > 0.95 {
+                print("Top prediction: \(topPredictionName) - score: \(String(describing: topPredictionScore))")
+            }
+        }
     }
 }

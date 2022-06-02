@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import UIKit
 
 public extension Float {
 
@@ -24,5 +25,18 @@ public extension Float {
      */
     static func random(min: Float, max: Float) -> Float {
         return Float.random * (max - min) + min
+    }
+}
+
+extension UIDeviceOrientation {
+    func getImagePropertyOrientation() -> CGImagePropertyOrientation {
+        switch self {
+            case UIDeviceOrientation.portrait, .faceUp: return CGImagePropertyOrientation.right
+            case UIDeviceOrientation.portraitUpsideDown, .faceDown: return CGImagePropertyOrientation.left
+            case UIDeviceOrientation.landscapeLeft: return CGImagePropertyOrientation.up
+            case UIDeviceOrientation.landscapeRight: return CGImagePropertyOrientation.down
+            case UIDeviceOrientation.unknown: return CGImagePropertyOrientation.right
+        default: return CGImagePropertyOrientation.right
+        }
     }
 }

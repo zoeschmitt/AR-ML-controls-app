@@ -20,6 +20,11 @@
 		DDF025902846EFC000C4F49D /* Node+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF0258E2846EFC000C4F49D /* Node+Extensions.swift */; };
 		DDF025932846F06800C4F49D /* SceneObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF025922846F06800C4F49D /* SceneObject.swift */; };
 		DDF025952846F08A00C4F49D /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF025942846F08A00C4F49D /* Sphere.swift */; };
+		DDF0259E2848230300C4F49D /* metadata_properties.json in Resources */ = {isa = PBXBuildFile; fileRef = DDF025992848230200C4F49D /* metadata_properties.json */; };
+		DDF0259F2848230300C4F49D /* Gestures.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = DDF0259A2848230300C4F49D /* Gestures.mlmodel */; };
+		DDF025A02848230300C4F49D /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = DDF0259B2848230300C4F49D /* LICENSE */; };
+		DDF025A12848230300C4F49D /* labels.txt in Resources */ = {isa = PBXBuildFile; fileRef = DDF0259C2848230300C4F49D /* labels.txt */; };
+		DDF025A22848230300C4F49D /* cvexport.manifest in Resources */ = {isa = PBXBuildFile; fileRef = DDF0259D2848230300C4F49D /* cvexport.manifest */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +42,11 @@
 		DDF0258E2846EFC000C4F49D /* Node+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Node+Extensions.swift"; sourceTree = "<group>"; };
 		DDF025922846F06800C4F49D /* SceneObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneObject.swift; sourceTree = "<group>"; };
 		DDF025942846F08A00C4F49D /* Sphere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sphere.swift; sourceTree = "<group>"; };
+		DDF025992848230200C4F49D /* metadata_properties.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = metadata_properties.json; sourceTree = "<group>"; };
+		DDF0259A2848230300C4F49D /* Gestures.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Gestures.mlmodel; sourceTree = "<group>"; };
+		DDF0259B2848230300C4F49D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		DDF0259C2848230300C4F49D /* labels.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = labels.txt; sourceTree = "<group>"; };
+		DDF0259D2848230300C4F49D /* cvexport.manifest */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cvexport.manifest; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +79,7 @@
 		DDF0255828454E9D00C4F49D /* AR-MachineLearning */ = {
 			isa = PBXGroup;
 			children = (
+				DDF0259628481E4700C4F49D /* CoreML */,
 				DDF025912846F05400C4F49D /* SceneObjects */,
 				DDF0258C2846EFB000C4F49D /* Utils */,
 				DDF02589284563DC00C4F49D /* Scenes */,
@@ -116,6 +127,18 @@
 				DDF025942846F08A00C4F49D /* Sphere.swift */,
 			);
 			path = SceneObjects;
+			sourceTree = "<group>";
+		};
+		DDF0259628481E4700C4F49D /* CoreML */ = {
+			isa = PBXGroup;
+			children = (
+				DDF0259D2848230300C4F49D /* cvexport.manifest */,
+				DDF0259C2848230300C4F49D /* labels.txt */,
+				DDF0259B2848230300C4F49D /* LICENSE */,
+				DDF025992848230200C4F49D /* metadata_properties.json */,
+				DDF0259A2848230300C4F49D /* Gestures.mlmodel */,
+			);
+			path = CoreML;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,7 +200,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDF0255C28454E9D00C4F49D /* art.scnassets in Resources */,
+				DDF025A12848230300C4F49D /* labels.txt in Resources */,
 				DDF0258528455D1900C4F49D /* 0_Tierra1.jpg in Resources */,
+				DDF025A22848230300C4F49D /* cvexport.manifest in Resources */,
+				DDF025A02848230300C4F49D /* LICENSE in Resources */,
+				DDF0259E2848230300C4F49D /* metadata_properties.json in Resources */,
 				DDF0256628454E9E00C4F49D /* LaunchScreen.storyboard in Resources */,
 				DDF0256328454E9E00C4F49D /* Assets.xcassets in Resources */,
 				DDF0256128454E9D00C4F49D /* Main.storyboard in Resources */,
@@ -198,6 +225,7 @@
 				DDF0258B284563E500C4F49D /* MainScene.swift in Sources */,
 				DDF0255E28454E9D00C4F49D /* ViewController.swift in Sources */,
 				DDF0258F2846EFC000C4F49D /* UtilityExtensions.swift in Sources */,
+				DDF0259F2848230300C4F49D /* Gestures.mlmodel in Sources */,
 				DDF0255A28454E9D00C4F49D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
